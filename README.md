@@ -17,31 +17,39 @@ console.log(telephoneCheck("1 555 555 5555")); // Output: true
 console.log(telephoneCheck("123-456-7890")); // Output: false
 
 ```
-# Valid US Phone Number Formats
-The function telephoneCheck validates phone numbers based on the following formats:
+const validFormats = [
+  '555-555-5555',
+  '(555)555-5555',
+  '(555) 555-5555',
+  '555 555 5555',
+  '5555555555',
+  '1 555 555 5555',
+];
 
-555-555-5555
-(555)555-5555
-(555) 555-5555
-555 555 5555
-5555555555
-1 555 555 5555
+## Valid US Phone Number Formats
+The function \`telephoneCheck\` validates phone numbers based on the following formats:
 
-The area code is required for all formats. If the country code is provided, it must be "1". The function will return true if the string matches any of the valid formats and false otherwise.
+${validFormats.map(format => `- ${format}`).join('\n')}
 
-# Implementation Details
-The function telephoneCheck uses a regular expression to match the given string against the valid US phone number formats. The regular expression pattern ^(1\s?)?(\(\d{3}\)|\d{3})[-\s]?(\d{3})[-\s]?(\d{4})$ is employed for this purpose.
+The area code is required for all formats. If the country code is provided, it must be "1". The function will return \`true\` if the string matches any of the valid formats and \`false\` otherwise.
 
-^ asserts the start of the string.
-(1\s?)? optionally matches the country code "1" followed by an optional space.
-(\(\d{3}\)|\d{3}) matches either three digits enclosed in parentheses or three consecutive digits.
-[-\s]? matches an optional hyphen or space.
-(\d{3}) matches three consecutive digits.
-[-\s]? matches an optional hyphen or space.
-(\d{4}) matches four consecutive digits.
-$ asserts the end of the string.
+## Implementation Details
+The function \`telephoneCheck\` uses a regular expression to match the given string against the valid US phone number formats. The regular expression pattern \`^(1\\s?)?(\\(\\d{3}\\)|\\d{3})[-\\s]?(\\d{3})[-\\s]?(\\d{4})$\` is employed for this purpose.
 
-If the string matches the regular expression pattern, the function returns true, indicating a valid US phone number. Otherwise, it returns false.
+- \`^\` asserts the start of the string.
+- \`(1\\s?)?\` optionally matches the country code "1" followed by an optional space.
+- \`(\\(\\d{3}\\)|\\d{3})\` matches either three digits enclosed in parentheses or three consecutive digits.
+- \`[-\\s]?\` matches an optional hyphen or space.
+- \`\\d{3}\` matches three consecutive digits.
+- \`[-\\s]?\` matches an optional hyphen or space.
+- \`\\d{4}\` matches four consecutive digits.
+- \`$\` asserts the end of the string.
+
+If the string matches the regular expression pattern, the function returns \`true\`, indicating a valid US phone number. Otherwise, it returns \`false\`.
+`;
+
+console.log(markdownOutput);
+
 
 # License
 This code is provided under the MIT License. Feel free to use and modify it according to your needs.
