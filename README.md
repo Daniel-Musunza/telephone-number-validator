@@ -17,19 +17,18 @@ console.log(telephoneCheck("1 555 555 5555")); // Output: true
 console.log(telephoneCheck("123-456-7890")); // Output: false
 
 ```
-const validFormats = [
-  '555-555-5555',
-  '(555)555-5555',
-  '(555) 555-5555',
-  '555 555 5555',
-  '5555555555',
-  '1 555 555 5555',
-];
+  
+
 
 ## Valid US Phone Number Formats
 The function \`telephoneCheck\` validates phone numbers based on the following formats:
 
-${validFormats.map(format => `- ${format}`).join('\n')}
+- '555-555-5555',
+- '(555)555-5555',
+- '(555) 555-5555',
+- '555 555 5555',
+- '5555555555',
+- '1 555 555 5555',
 
 The area code is required for all formats. If the country code is provided, it must be "1". The function will return \`true\` if the string matches any of the valid formats and \`false\` otherwise.
 
